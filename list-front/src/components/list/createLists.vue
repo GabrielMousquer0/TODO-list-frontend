@@ -1,4 +1,6 @@
 <script>
+import yourLists from './yourLists.vue'
+
 export default {
     methods: {
         createLists() {
@@ -8,12 +10,20 @@ export default {
         cList.style.display = "block"
        } 
         }
+    },
+    components: {
+        yourLists
     }
 }
 </script>
 <template>
 <div>
- <h4>Suas Listas</h4> <q-btn square color="primary" icon="create" style="left: 630px;" label="Criar Lista" @click="createLists"/>
+    <span class="text-h4">
+        Suas Listas </span> 
+
+        <q-btn square color="primary" icon="create" style="left: 630px;" label="Criar Lista" @click="createLists"/>
+
+<yourLists />
         <div id="cList">
             <div>
                 <div class="q-gutter-md" style="max-width: 300px;">
@@ -32,7 +42,8 @@ export default {
     position: absolute;
     height: 300px;
     width: 50%;
-    left: 100px;
+    top: 20px;
+    left: 300px;
     display: none;
     border-radius: 10px;
     background-color: rgb(138, 132, 132);
