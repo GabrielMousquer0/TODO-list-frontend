@@ -23,6 +23,7 @@ export default {
 </script>
 <script setup>
 import { useQuery } from 'villus'
+
 const fetchQuery = `
 query fetchQuery {
     lists {
@@ -33,23 +34,49 @@ query fetchQuery {
 }
 `
 
-const { data } = useQuery({
-    query: fetchQuery
+const {data} = useQuery({
+  query: fetchQuery
 })
 
 </script>
 <template>
     <div>
-
     <q-scroll-area
       :thumb-style="thumbStyle"
       :bar-style="barStyle"
-      style="height: 440px; max-width: 100%; top: 300px; "
-    >
-      <div v-for="n in 100" :key="n" class="q-pa-xs">
-    {{ data }}
+      style="height: 470px; max-width: 100%; top: 280px; "
+      >
+      <ul v-if="data">
+        <li v-for="list in data.lists" :key="list">
+          <div id="viewList">
+        <q-list>
+          <q-separator spaced inset></q-separator>
+          <q-item>
+            <q-item-section>
+                <q-item-label>
+                <span class="text-h2" style="font-size: 30px;">Titulo: {{ list.title }}</span>
+             <br> <span class="text-h3" style="font-size: 20px;">Descrição:</span>
+              </q-item-label>
+            </q-item-section>
+          </q-item>
+        </q-list>
       </div>
+      <div style="background-color: white;">
+        <q-scroll-area style="height: 100px; max-width: 100%; ">
+          {{ list.content }}
+        </q-scroll-area>
+             </div>
+        </li>
+      </ul>
+
     </q-scroll-area>
 
 </div>
 </template>
+<style scoped>
+#viewList {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(207, 207, 207);
+}
+</style>
