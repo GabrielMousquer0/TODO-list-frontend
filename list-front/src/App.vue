@@ -1,5 +1,4 @@
 <script>
-import { useQuery } from 'villus'
 import headerBar from './components/headerBar.vue'
 import showList from './components/showList.vue'
 
