@@ -1,5 +1,5 @@
 <script setup>
-import { useMutation, useQuery  } from 'villus'
+import { useMutation } from 'villus'
 
 const props = defineProps({
         itemId: {
@@ -7,15 +7,6 @@ const props = defineProps({
         }
       })
 
-const fetchQuery = `
-query fetchQuery {
-    lists {
-        title
-        content
-        id
-    }
-}
-`
 const deleteElement = `
     mutation deleteElement($id: ID!) {
         deleteElement(id: $id) {
@@ -26,9 +17,7 @@ const deleteElement = `
 }
 `
 
-const { data } = useQuery({
-  query: fetchQuery
-})
+
 const { execute } = useMutation(deleteElement)
 function deleteElements(id) {
 execute({
@@ -40,7 +29,5 @@ execute({
     <div>
         <q-btn  square icon="delete" color="primary" style="left: 700px; bottom: 70px;" @click="deleteElements(props.itemId)"/>
     </div>
-             
-
 
 </template>
