@@ -1,14 +1,8 @@
 <script>
 import yourLists from './yourLists.vue'
-import { ref } from 'vue'
+import submitLists from './events/submitLists.vue'
 
 export default {
-    setup() {
-        return {
-            inputTitle: ref(''),
-            inputDesc: ref('')
-        }
-    },
     methods: {
         createLists() {
             if(cList.style.display == "block") {
@@ -16,28 +10,21 @@ export default {
       } else {
         cList.style.display = "block"
        } 
-        },
+        }
     },
     components: {
-        yourLists
+        yourLists,
+        submitLists
     }
 }
 </script>
 <template>
 <div>
     <span class="text-h4">Suas Listas</span> 
-
-        <q-btn square color="primary" icon="create" style="left: 430px; top: 40px;" label="Criar Lista" @click="createLists" />
-
+        <q-btn square color="primary" icon="create" style="left: 430px; top: 40px;" label="Criar Lista" @click="createLists"/>
 <yourLists />
         <div id="cList">
-            <div>
-                <div class="q-gutter-md"  style="max-width: 300px;">
-                    <q-input outlined label="Titulo" v-model="inputTitle"/>
-                    <q-input outlined type="textarea" label="Descrição" v-model="inputDesc"/>
-                    <q-btn square color="primary" icon="send" style="left: 230px;" label="Enviar"/>
-                </div>
-            </div>
+            <submitLists/>
         </div>
 </div>
 </template>
