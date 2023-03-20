@@ -1,30 +1,23 @@
-<script>
-export default {
-    setup() {
-        return {
-            thumbStyle: {
+<script setup>
+import { watchEffect } from 'vue'
+import { useQuery  } from 'villus'
+import deleteItem from './events/deleteElement.vue'
+let thumbStyle = {
         right: '4px',
         borderRadius: '5px',
         backgroundColor: '#027be3',
         width: '5px',
         opacity: 0.75
-      },
-
-      barStyle: {
+      }
+let barStyle = {
         right: '2px',
         borderRadius: '9px',
         backgroundColor: '#027be3',
         width: '9px',
         opacity: 0.2
-      },
-        }
-    }
-}
-</script>
-<script setup>
-import { useQuery } from 'villus'
-
-const fetchQuery = `
+      }
+  
+  const fetchQuery = `
 query fetchQuery {
     lists {
         id
@@ -34,7 +27,7 @@ query fetchQuery {
 }
 `
 
-const {data} = useQuery({
+const { data, execute } = useQuery({
   query: fetchQuery
 })
 
@@ -44,19 +37,19 @@ const {data} = useQuery({
     <q-scroll-area
       :thumb-style="thumbStyle"
       :bar-style="barStyle"
-      style="height: 470px; max-width: 100%; top: 280px; "
-      >
+      style="height: 470px; max-width: 100%; top: 280px; ">
       <ul v-if="data">
         <li v-for="list in data.lists" :key="list">
-          <div id="viewList">
+          <div class="bg-grey">
         <q-list>
           <q-separator spaced inset></q-separator>
           <q-item>
             <q-item-section>
                 <q-item-label>
                 <span class="text-h2" style="font-size: 30px;">Titulo: {{ list.title }}</span>
-             <br> <span class="text-h3" style="font-size: 20px;">Descrição:</span>
               </q-item-label>
+              <q-item-label><span class="text-h3" style="font-size: 20px;">Descrição:</span></q-item-label>
+              <q-item-label> <deleteItem :itemId="list.id"/> </q-item-label>
             </q-item-section>
           </q-item>
         </q-list>
