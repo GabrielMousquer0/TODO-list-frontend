@@ -8,10 +8,14 @@ export default {
 }
 </script>
 <template>
-  <q-header elevated class="bg-grey" style="height: 130px;">
-      <h1>Market List</h1>
-    
+    <q-header elevated class="bg-grey" style="height: 130px;">
+      <q-toolbar>
+          <img src="https://cdn-icons-png.flaticon.com/128/263/263062.png" style="width: 100px;">
+      <q-toolbar-title style="font-size: 100px;">Market List</q-toolbar-title>
+    </q-toolbar>
   </q-header>
+  
+
 
 </template>
 
@@ -24,3 +28,4 @@ h1 {
   top: 10px;
 }
 </style>
+ 
