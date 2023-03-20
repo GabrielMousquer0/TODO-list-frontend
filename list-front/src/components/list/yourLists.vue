@@ -2,6 +2,8 @@
 import { watchEffect } from 'vue'
 import { useQuery  } from 'villus'
 import deleteItem from './events/deleteElement.vue'
+import editElement from  './events/editElement.vue'
+
 let thumbStyle = {
         right: '4px',
         borderRadius: '5px',
@@ -50,15 +52,11 @@ const { data, execute } = useQuery({
               </q-item-label>
               <q-item-label><span class="text-h3" style="font-size: 20px;">Descrição:</span></q-item-label>
               <q-item-label> <deleteItem :itemId="list.id"/> </q-item-label>
+              <q-item-label><editElement :itemId="list.id" :itemContent="list.content" /></q-item-label>
             </q-item-section>
           </q-item>
         </q-list>
       </div>
-      <div style="background-color: white;">
-        <q-scroll-area style="height: 100px; max-width: 100%; ">
-          {{ list.content }}
-        </q-scroll-area>
-             </div>
         </li>
       </ul>
 
