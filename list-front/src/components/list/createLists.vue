@@ -5,11 +5,11 @@ import submitLists from './events/submitLists.vue'
 export default {
     methods: {
         createLists() {
-            if(cList.style.display == "block") {
+            if (cList.style.display == "block") {
                 cList.style.display = "none"
-      } else {
-        cList.style.display = "block"
-       } 
+            } else {
+                cList.style.display = "block"
+            }
         }
     },
     components: {
@@ -18,16 +18,18 @@ export default {
     }
 }
 </script>
+
 <template>
-<div>
-    <span class="text-h4">Suas Listas</span> 
-        <q-btn square color="primary" icon="create" style="left: 430px; top: 40px;" label="Criar Lista" @click="createLists"/>
-<yourLists />
+    <div>
+        <span class="text-h4">Suas Listas</span>
+        <q-btn square color="primary" icon="create" style="left: 430px; top: 40px;" label="Criar Lista" @click="createLists" />
+        <yourLists />
         <div id="cList">
             <submitLists/>
         </div>
-</div>
+    </div>
 </template>
+
 <style>
 #cList {
     margin: 0;

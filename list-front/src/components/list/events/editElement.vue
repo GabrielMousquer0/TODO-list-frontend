@@ -12,7 +12,6 @@ const props = defineProps({
       })
 
 const newContent = ref(props.itemContent)
-const newTitle = ref(props.itemTitle)
 
 const fetchEdit = `
 mutation editList($id: ID!, $content: String!) {
@@ -34,6 +33,6 @@ execute({
 <template>
         <div>
             <q-input class="bg-white" filled type="textarea" v-model="newContent" />
-                <q-btn square  color="primary" icon="save" label="Editar" @click="editLists(props.itemId, newContent)"/>
+                <q-btn square  color="primary" icon="save" label="salvar" @click="editLists(props.itemId, newContent)"/>
     </div>
 </template>
