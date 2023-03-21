@@ -1,12 +1,12 @@
 <script>
-import headerBar from './components/headerBar.vue'
-import showList from './components/showList.vue'
+import HeaderBar from './components/HeaderBar.vue'
+import ShowList from './components/ShowList.vue'
 
 export default {
     name: "App",
     components: {
-        headerBar,
-        showList
+        HeaderBar,
+        ShowList
     },
 }
 </script>
@@ -14,8 +14,8 @@ export default {
 <template>
     <div>
         <q-layout>
-            <headerBar />
-            <showList />
+            <HeaderBar />
+            <ShowList />
         </q-layout>
     </div>
 </template>

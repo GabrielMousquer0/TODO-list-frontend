@@ -1,8 +1,8 @@
 <script setup>
 import { watchEffect } from 'vue'
 import { useQuery } from 'villus'
-import deleteItem from './events/deleteElement.vue'
-import editElement from './events/editElement.vue'
+import DeleteItem from './events/DeleteElement.vue'
+import EditElement from './events/EditElement.vue'
 
 let thumbStyle = {
     right: '4px',
@@ -49,9 +49,9 @@ const { data, execute } = useQuery({
                                     </q-item-label>
                                     <q-item-label><span class="text-h3" style="font-size: 20px;">Descrição:</span></q-item-label>
                                     <q-item-label>
-                                        <deleteItem :itemId="list.id" /> </q-item-label>
+                                        <DeleteItem :itemId="list.id" /> </q-item-label>
                                     <q-item-label>
-                                        <editElement :itemId="list.id" :itemContent="list.content" />
+                                        <EditElement :itemId="list.id" :itemContent="list.content" />
                                     </q-item-label>
                                 </q-item-section>
                             </q-item>

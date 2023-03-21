@@ -1,8 +1,8 @@
 <script>
-import listCreate from './list/createLists.vue'
+import ListCreate from './list/CreateLists.vue'
 export default {
     components: {
-        listCreate
+        ListCreate
     },
     methods: {
         viewList() {
@@ -22,7 +22,7 @@ export default {
             <q-btn square color="grey" icon="list" style="left: 200px;" label="Mostrar Listas" @click="viewList" />
             <div id="vList">
                 <div>
-                    <listCreate />
+                    <ListCreate />
                 </div>
             </div>
         </q-page>

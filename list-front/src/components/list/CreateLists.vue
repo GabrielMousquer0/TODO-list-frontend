@@ -1,6 +1,6 @@
 <script>
-import yourLists from './yourLists.vue'
-import submitLists from './events/submitLists.vue'
+import YourLists from './YourLists.vue'
+import SubmitLists from './events/SubmitLists.vue'
 
 export default {
     methods: {
@@ -13,8 +13,8 @@ export default {
         }
     },
     components: {
-        yourLists,
-        submitLists
+        YourLists,
+        SubmitLists
     }
 }
 </script>
@@ -23,9 +23,9 @@ export default {
     <div>
         <span class="text-h4">Suas Listas</span>
         <q-btn square color="primary" icon="create" style="left: 430px; top: 40px;" label="Criar Lista" @click="createLists" />
-        <yourLists />
+        <YourLists />
         <div id="cList">
-            <submitLists/>
+            <SubmitLists/>
         </div>
     </div>
 </template>
