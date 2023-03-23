@@ -17,12 +17,13 @@ const fetchEdit = `
 mutation editList($id: ID!, $content: String!) {
     editElement(id: $id, content: $content) {
         content
-        id
     }
 }
 `
 
-const { execute } = useMutation(fetchEdit)
+const { execute } = useMutation(fetchEdit, {
+    refetchTags: ['all_lists']
+})
 function editLists(id, content) {
 execute({
     content: content,

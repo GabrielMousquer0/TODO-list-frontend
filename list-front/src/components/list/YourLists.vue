@@ -1,5 +1,4 @@
 <script setup>
-import { watchEffect } from 'vue'
 import { useQuery } from 'villus'
 import DeleteItem from './events/DeleteElement.vue'
 import EditElement from './events/EditElement.vue'
@@ -29,9 +28,11 @@ query fetchQuery {
 }
 `
 
-const { data, execute } = useQuery({
-    query: fetchQuery
+const { data } = useQuery({
+    query: fetchQuery,
+    tags: ['all_lists']
 })
+
 </script>
 
 <template>

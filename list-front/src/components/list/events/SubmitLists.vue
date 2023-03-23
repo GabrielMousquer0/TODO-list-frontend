@@ -14,7 +14,9 @@ mutation createLists($title: String!, $content: String!, $id: ID!) {
 }
 `
 
-const { execute } = useMutation(createLists)
+const { execute } = useMutation(createLists, {
+    refetchTags: ['all_lists']
+})
 
 function submitList(title, content) {
 

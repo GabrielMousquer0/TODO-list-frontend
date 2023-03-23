@@ -9,17 +9,14 @@ const props = defineProps({
 
 const deleteElement = `
     mutation deleteElement($id: ID!) {
-        deleteElement(id: $id) {
-            title
-            content
-            id
-    }
+        deleteElement(id: $id)
 }
 `
 
 
-const { execute } = useMutation(deleteElement)
-
+const { execute } = useMutation(deleteElement, {
+    refetchTags: ['all_lists']
+})
 function deleteElements(id) {
     execute({
         id: id
