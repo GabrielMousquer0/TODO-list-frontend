@@ -19,7 +19,7 @@ export default {
 <template>
     <q-page-container>
         <q-page class="q-pa-md">
-            <q-btn square color="grey" icon="list" style="left: 200px;" label="Mostrar Listas" @click="viewList" />
+            <q-btn square color="grey" class="buttonShowlist" icon="list" label="Mostrar Listas" @click="viewList" />
             <div id="vList">
                 <div>
                     <ListCreate />
@@ -30,6 +30,11 @@ export default {
 </template>
 
 <style>
+.buttonShowlist {
+    left: 150px;
+    top: 30px;
+}
+
 #vList {
     margin: 0;
     padding: 0;

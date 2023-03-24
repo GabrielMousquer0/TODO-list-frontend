@@ -1,6 +1,10 @@
 <script setup>
-import { useMutation } from 'villus'
-import { ref } from 'vue'
+import {
+    useMutation
+} from 'villus'
+import {
+    ref
+} from 'vue'
 const inputTitle = ref('')
 const inputDesc = ref('')
 
@@ -14,12 +18,13 @@ mutation createLists($title: String!, $content: String!, $id: ID!) {
 }
 `
 
-const { execute } = useMutation(createLists, {
+const {
+    execute
+} = useMutation(createLists, {
     refetchTags: ['all_lists']
 })
 
 function submitList(title, content) {
-
     return execute({
         title: title,
         content: content,
@@ -30,10 +35,10 @@ function submitList(title, content) {
 
 <template>
     <div>
-        <div class="q-gutter-md" style="max-width: 300px;">
+        <div class="q-gutter-md">
             <q-input outlined label="Titulo" v-model="inputTitle" />
             <q-input outlined type="textarea" label="Descrição" v-model="inputDesc" />
-            <q-btn square color="primary" icon="send" style="left: 230px;" label="Enviar" @click="submitList(inputTitle, inputDesc)" />
+            <q-btn square color="primary" icon="send" label="Enviar" @click="submitList(inputTitle, inputDesc)" />
         </div>
     </div>
 </template>

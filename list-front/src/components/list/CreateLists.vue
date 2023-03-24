@@ -22,7 +22,7 @@ export default {
 <template>
     <div>
         <span class="text-h4">Suas Listas</span>
-        <q-btn square color="primary" icon="create" style="left: 430px; top: 40px;" label="Criar Lista" @click="createLists" />
+        <q-btn class="createButton" square color="primary" icon="create" label="Criar Lista" @click="createLists" />
         <YourLists />
         <div id="cList">
             <SubmitLists/>
@@ -31,6 +31,12 @@ export default {
 </template>
 
 <style>
+.createButton {
+    position: absolute;
+    left: 620px;
+    top: 55px;
+}
+
 #cList {
     margin: 0;
     padding: 0;

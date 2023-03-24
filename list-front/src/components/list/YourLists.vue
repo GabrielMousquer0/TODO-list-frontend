@@ -1,5 +1,7 @@
 <script setup>
-import { useQuery } from 'villus'
+import {
+    useQuery
+} from 'villus'
 import DeleteItem from './events/DeleteElement.vue'
 import EditElement from './events/EditElement.vue'
 
@@ -28,16 +30,17 @@ query fetchQuery {
 }
 `
 
-const { data } = useQuery({
+const {
+    data
+} = useQuery({
     query: fetchQuery,
     tags: ['all_lists']
 })
-
 </script>
 
 <template>
     <div>
-        <q-scroll-area :thumb-style="thumbStyle" :bar-style="barStyle" style="height: 470px; max-width: 100%; top: 280px; ">
+        <q-scroll-area :thumb-style="thumbStyle" :bar-style="barStyle" class="scrollArea">
             <ul v-if="data">
                 <li v-for="list in data.lists" :key="list">
                     <div class="bg-grey">
@@ -46,9 +49,9 @@ const { data } = useQuery({
                             <q-item>
                                 <q-item-section>
                                     <q-item-label>
-                                        <span class="text-h2" style="font-size: 30px;">Titulo: {{ list.title }}</span>
+                                        <span class="text-h3">Titulo: {{ list.title }}</span>
                                     </q-item-label>
-                                    <q-item-label><span class="text-h3" style="font-size: 20px;">Descrição:</span></q-item-label>
+                                    <q-item-label><span class="text-h4">Descrição:</span></q-item-label>
                                     <q-item-label>
                                         <DeleteItem :itemId="list.id" /> </q-item-label>
                                     <q-item-label>
@@ -67,6 +70,12 @@ const { data } = useQuery({
 </template>
 
 <style scoped>
+.scrollArea {
+    height: 470px;
+    max-width: 100%;
+    top: 280px;
+}
+
 #viewList {
     margin: 0;
     padding: 0;

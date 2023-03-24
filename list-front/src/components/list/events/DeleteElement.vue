@@ -1,5 +1,7 @@
 <script setup>
-import { useMutation } from 'villus'
+import {
+    useMutation
+} from 'villus'
 
 const props = defineProps({
     itemId: {
@@ -14,9 +16,12 @@ const deleteElement = `
 `
 
 
-const { execute } = useMutation(deleteElement, {
+const {
+    execute
+} = useMutation(deleteElement, {
     refetchTags: ['all_lists']
 })
+
 function deleteElements(id) {
     execute({
         id: id
@@ -26,6 +31,14 @@ function deleteElements(id) {
 
 <template>
     <div>
-        <q-btn square icon="delete" color="primary" style="left: 700px; bottom: 70px;" @click="deleteElements(props.itemId)" />
+        <q-btn class="btnDelete" square icon="delete" color="primary" id="deleteButton" @click="deleteElements(props.itemId)" />
     </div>
 </template>
+
+<style scoped>
+.btnDelete {
+    position: absolute;
+    left: 700px;
+    top: 40px;
+}
+</style>
