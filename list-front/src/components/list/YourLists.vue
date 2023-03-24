@@ -50,9 +50,9 @@ const {
                             <q-item>
                                 <q-item-section>
                                     <q-item-label>
-                                        <span class="text-h3">Titulo: <EditTitle :itemTitle="list.title" :itemId="list.id"/></span>
+                                        <span class="text-h4">Titulo: <EditTitle :itemTitle="list.title" :itemId="list.id"/></span>
                                     </q-item-label>
-                                    <q-item-label><span class="text-h4">Descrição:</span></q-item-label>
+                                    <q-item-label><span class="text-h5">Descrição:</span></q-item-label>
                                     <q-item-label>
                                         <DeleteItem :itemId="list.id" /> </q-item-label>
                                     <q-item-label>

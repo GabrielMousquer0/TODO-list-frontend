@@ -41,9 +41,9 @@ export default {
     margin: 0;
     padding: 0;
     position: absolute;
-    height: 300px;
+    height: 320px;
     width: 50%;
-    top: 20px;
+    top: 7px;
     left: 200px;
     display: none;
     border-radius: 10px;

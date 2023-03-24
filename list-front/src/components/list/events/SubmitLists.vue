@@ -25,6 +25,9 @@ const {
 })
 
 function submitList(title, content) {
+    if(!title || !content) {
+        return 
+    }
     return execute({
         title: title,
         content: content,
@@ -36,8 +39,8 @@ function submitList(title, content) {
 <template>
     <div>
         <div class="q-gutter-md">
-            <q-input outlined label="Titulo" v-model="inputTitle" />
-            <q-input outlined type="textarea" label="Descrição" v-model="inputDesc" />
+            <q-input outlined label="Titulo" v-model="inputTitle" :rules="[val => (!!val && val.length < 25) || 'Você deve digitar algo que não passe de 25 caracteres']"/>
+            <q-input outlined type="textarea" label="Descrição" v-model="inputDesc" :rules="[val => (!!val) || 'Você deve digitar algo']"/>
             <q-btn square color="primary" icon="send" label="Enviar" @click="submitList(inputTitle, inputDesc)" />
         </div>
     </div>
