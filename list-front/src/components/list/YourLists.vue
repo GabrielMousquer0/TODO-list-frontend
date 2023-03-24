@@ -3,7 +3,8 @@ import {
     useQuery
 } from 'villus'
 import DeleteItem from './events/DeleteElement.vue'
-import EditElement from './events/EditElement.vue'
+import EditContent from './events/edit/EditContent.vue'
+import EditTitle from './events/edit/EditTitle.vue'
 
 let thumbStyle = {
     right: '4px',
@@ -49,13 +50,13 @@ const {
                             <q-item>
                                 <q-item-section>
                                     <q-item-label>
-                                        <span class="text-h3">Titulo: {{ list.title }}</span>
+                                        <span class="text-h3">Titulo: <EditTitle :itemTitle="list.title" :itemId="list.id"/></span>
                                     </q-item-label>
                                     <q-item-label><span class="text-h4">Descrição:</span></q-item-label>
                                     <q-item-label>
                                         <DeleteItem :itemId="list.id" /> </q-item-label>
                                     <q-item-label>
-                                        <EditElement :itemId="list.id" :itemContent="list.content" />
+                                        <EditContent :itemId="list.id" :itemContent="list.content" />
                                     </q-item-label>
                                 </q-item-section>
                             </q-item>

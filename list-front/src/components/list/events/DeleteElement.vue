@@ -39,6 +39,6 @@ function deleteElements(id) {
 .btnDelete {
     position: absolute;
     left: 700px;
-    top: 40px;
+    top: 150px;
 }
 </style>
