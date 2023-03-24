@@ -1,5 +1,5 @@
 import { createClient } from "villus";
-const PORT = import.meta.env.VITE_SOME_KEY
+const PORT = import.meta.env.VITE_URL_SERVER
 
 const villus = createClient({
     url: `${PORT}`
