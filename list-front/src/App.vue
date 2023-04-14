@@ -1,22 +1,21 @@
 <script>
-import { useQuery } from 'villus'
-import headerBar from './components/headerBar.vue'
-import showList from './components/showList.vue'
+import HeaderBar from './components/HeaderBar.vue'
+import ShowList from './components/ShowList.vue'
 
 export default {
-  name: "App",
-  components: {
-headerBar,
-showList
-  },
+    name: "App",
+    components: {
+        HeaderBar,
+        ShowList
+    },
 }
-
 </script>
+
 <template>
-<div >
-  <q-layout>
-  <headerBar />
-    <showList />
-   </q-layout>
-  </div>
+    <div>
+        <q-layout>
+            <HeaderBar />
+            <ShowList />
+        </q-layout>
+    </div>
 </template>
